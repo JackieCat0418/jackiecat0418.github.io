@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>ArchLinux Kde Installation Guide</title>
+      <link href="2021/02/20/ArchLinux%20Kde%20Installation%20Guide/"/>
+      <url>2021/02/20/ArchLinux%20Kde%20Installation%20Guide/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ArchLinux-KDE桌面环境安装"><a href="#ArchLinux-KDE桌面环境安装" class="headerlink" title="ArchLinux KDE桌面环境安装"></a>ArchLinux KDE桌面环境安装</h1><p>此文由RS_Apple编写！！！</p><h3 id="新建普通用户"><a href="#新建普通用户" class="headerlink" title="新建普通用户"></a>新建普通用户</h3><p>在日常生活中我们不<strong>提倡</strong>使用root账号，因为这会对系统拥有<strong>完全</strong>的掌控权，容易自己把系统搞坏，所以我们要新建账户</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">useradd -m -G wheel username<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>之后，我们要使得我们的账户能够正常使用<code>sudo</code>指令提权，我们要编辑<code>sudoers file</code></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">EDITOR&#x3D;vim visudo#可以替换为你熟悉的编辑器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>找到<code>%wheel ALL=(ALL) ALL</code><br>去掉前面的注释，这步就完成了</p><h3 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S mesa #安装基础显卡驱动，有些软件以它为依赖sudo pacman -S nvidia #安装N卡驱动(注意，n卡驱动建议搭配bumblebee等软件进行食用，fu*k u nvidia)sudo pacman -S xf86-video-intel #intelsudo pacman -S xf86-video-ati #amd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="安装KDE-Plasma的必要软件"><a href="#安装KDE-Plasma的必要软件" class="headerlink" title="安装KDE-Plasma的必要软件"></a>安装KDE-Plasma的必要软件</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S xf86-input-synaptics #安装触摸板驱动(可选，一般不需要安装)sudo pacman -S noto-fonts-cjk #安装必要的字体,我比较喜欢google家的字体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="安装KDE-Plasma桌面环境"><a href="#安装KDE-Plasma桌面环境" class="headerlink" title="安装KDE-Plasma桌面环境"></a>安装KDE-Plasma桌面环境</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S plasma kde-applications #安装桌面环境以及桌面环境的应用程序sudo pacman -S sddm sddm-kcm #安装sddmsudo systemctl enable sddm #开机自动启动sddm登陆管理器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="添加archlinuxcn软件源（建议）"><a href="#添加archlinuxcn软件源（建议）" class="headerlink" title="添加archlinuxcn软件源（建议）"></a>添加archlinuxcn软件源（建议）</h3><p><code>archlinuxcn</code>是中国的archlinux用户自己维护的软件源，上面有许多已经打包好的官方源没有的软件包</p><p>如果不添加这个源可能需要经常使用aur helper安装软件</p><p>我们后面的教程也会用到上面的软件包，使用cn源可以加快你的速度</p><p>编辑<code>/etc/pacman.conf</code>文件，加入以下内容</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[archlinuxcn]Server &#x3D; https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;archlinuxcn&#x2F;$arch#这里使用了阿里云的镜像源，你也可以选择其他的镜像源#清华源:https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;archlinuxcn&#x2F;$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><p>这些软件包安装完成后，重启你的电脑，不出意外的话sddm就会先启动</p><p>找到之前新建的账户，输入密码，登陆进去，如果看到了kde就证明你成功了！</p><p>下期更新安装ArchLinux的常用软件等qwq</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Jackie的arch传教计划 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Arch Linux </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Arch Linux安装教程</title>
       <link href="2021/01/19/Arch%20Linux%20%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
       <url>2021/01/19/Arch%20Linux%20%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
